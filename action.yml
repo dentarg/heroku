@@ -23,6 +23,7 @@ runs:
     - name: Push to Heroku
       env:
         HEROKU_API_KEY: "${{ inputs.key }}"
+      shell: bash
       run: |
         git fetch --prune --unshallow
         git push --force \
@@ -32,6 +33,7 @@ runs:
     - name: Create deployment in GitHub
       env:
         GITHUB_TOKEN: ${{ inputs.github-token }}
+      shell: bash
       run: |
         deploymentId=$(gh api repos/${{ github.repository }}/deployments \
           --method POST \
@@ -43,6 +45,7 @@ runs:
         echo 'DEPLOYMENT_ID='$deploymentId >> $GITHUB_ENV
 
     - name: Create deployment status in GitHub
+      shell: bash
       env:
         GITHUB_TOKEN: ${{ inputs.github-token }}
       run: |
