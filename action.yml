@@ -31,6 +31,7 @@ runs:
           ${{ github.event.repository.default_branch }}
 
     - name: Create deployment in GitHub
+      if: ${{ inputs.github-token }}
       env:
         GITHUB_TOKEN: ${{ inputs.github-token }}
       shell: bash
@@ -45,6 +46,7 @@ runs:
         echo 'DEPLOYMENT_ID='$deploymentId >> $GITHUB_ENV
 
     - name: Create deployment status in GitHub
+      if: ${{ inputs.github-token }}
       shell: bash
       env:
         GITHUB_TOKEN: ${{ inputs.github-token }}
