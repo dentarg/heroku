@@ -1,4 +1,4 @@
-name: "Heroku Deploy"
+name: "Heroku GitHub Deploy"
 description: "Deploy to Heroku from GitHub Actions"
 branding:
   icon: "cpu"
