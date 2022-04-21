@@ -15,6 +15,7 @@ jobs:
     if: |
       github.event.workflow_run.conclusion == 'success' &&
       github.event.workflow_run.head_branch == github.event.repository.default_branch
+    concurrency: myapp
     runs-on: ubuntu-latest
     steps:
       - uses: dentarg/heroku@v1
