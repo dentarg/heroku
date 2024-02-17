@@ -28,6 +28,7 @@ jobs:
         with:
           app: myapp
           key: ${{ secrets.HEROKU_API_KEY }}
+          sha: ${{ github.event.workflow_run.head_commit.id }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
 ```
 
