@@ -49,7 +49,7 @@ runs:
         git fetch --prune --unshallow
         git push --force \
           https://placeholder:$HEROKU_API_KEY@git.heroku.com/${{ inputs.app }}.git \
-          ${{ github.event.repository.default_branch }}
+          ${{ inputs.app }}
 
     - name: Create deployment status in GitHub
       if: ${{ inputs.github-token }}
